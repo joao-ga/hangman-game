@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1697904076 source:c:\users\pichau\desktop\estudos\c++\jogoforca\main.cpp
+	<iostream>
+	<time.h>
+	<string.h>
+
