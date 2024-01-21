@@ -85,12 +85,13 @@ void mostrar_palavra(char vet_acerto[],int acertos,int erros, char vet_erros[]){
 
 int rodada(char palavra[], char vet_acertos[], char vet_erros[], int *acertos, int *erros) { // DESENHAR FORCA
     int comp = strlen(palavra), position = 0;
-    while((*acertos != comp) && (*erros != 6)){
+    while((*acertos < comp) && (*erros < 6)){
         int achou = 0 ;
         char resposta;
         cout << endl;
         cout<<"Digite uma letra: ";
         cin>>resposta;
+        resposta = toupper(resposta);
 
         if(resposta == '*'){
             return 0;
