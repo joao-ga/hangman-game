@@ -83,7 +83,7 @@ void mostrar_palavra(char vet_acerto[],int acertos,int erros, char vet_erros[]){
 }
 
 
-int rodada(char palavra[], char vet_acertos[], char vet_erros[], int *acertos, int *erros){ // DESENHAR FORCA
+int rodada(char palavra[], char vet_acertos[], char vet_erros[], int *acertos, int *erros) { // DESENHAR FORCA
     int comp = strlen(palavra), position = 0;
     while((*acertos != comp) && (*erros != 6)){
         int achou = 0 ;
@@ -108,29 +108,31 @@ int rodada(char palavra[], char vet_acertos[], char vet_erros[], int *acertos, i
             exit(1);
         }
         for(int i = 0; i < comp; i++){
-        if(resposta == palavra[i]){
-            achou = 1;
-            (*acertos)++;
-            vet_acertos[i] = resposta;
-            mostrar_palavra(vet_acertos,*acertos,*erros, vet_erros);
+            if(resposta == palavra[i]){
+                achou = 1;
+                (*acertos)++;
+                vet_acertos[i] = resposta;
+                desenhar_forca(*erros);
+                mostrar_palavra(vet_acertos,*acertos,*erros, vet_erros);
             }
         }
         if(achou == 0){
             (*erros)++;
             vet_erros[position] = resposta;
             position++;
-            cout<<"Voce errou, tente outra letra."<<endl;
+            desenhar_forca(*erros);
+            mostrar_palavra(vet_acertos,*acertos,*erros, vet_erros);
+            cout<<"\nVoce errou, tente outra letra."<<endl;
 
         }
     }
-
+    
 }
 
-int main()
-{
+int main() {
     int opcao = boas_vindas();
     if(opcao == 0){
-        cout<<"Obrigado, nos fez de bobos";
+        cout<<"Obrigado por jogar ate mais!";
     }else{
         srand(time(0));
 
